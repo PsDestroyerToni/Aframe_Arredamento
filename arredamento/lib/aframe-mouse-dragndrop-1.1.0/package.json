@@ -1,0 +1,25 @@
+{
+  "name": "aframe-mouse-dragndrop-component",
+  "version": "1.1.0",
+  "description": "Drag-n-drop entites using mouse cursor.",
+  "keywords": [
+    "aframe",
+    "drag-n-drop",
+    "aframe-vr",
+    "webvr",
+    "aframe-component"
+  ],
+  "homepage": "https://github.com/extraymond/aframe-mouse-dragndrop",
+  "repository": "extraymond/aframe-mouse-dragndrop",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "parcel example/index.html",
+    "build": "parcel build src/index.js --no-source-maps"
+  },
+  "author": "Raymond Yeh <extraymond@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "aframe": "^0.9.2"
+  }
+}

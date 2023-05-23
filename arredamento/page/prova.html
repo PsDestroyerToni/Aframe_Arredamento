@@ -1,0 +1,130 @@
+<html>
+
+<head>
+  <title>prova</title>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="../webar-sdk/webar-sdk-v1.5.1.min.js"></script>  
+  <!-- <script src="../lib/aframe-mouse-dragndrop-1.1.0/src/index.js"></script> -->
+  <!-- <script src="../lib/aframe-mouse-dragndrop-1.1.0/src/index.js"></script> -->
+  <script src="../script/rotae.js"></script>
+  <link rel="stylesheet" href="../style/style.css">
+
+</head>
+
+<body>
+  <div class="menu" style="background-color: rgba(0, 0, 0, 0.568);position: fixed;
+  bottom: 0;
+  width: 100%; height: 15%;z-index: 999; ">
+    <div class="row">
+      <div class="column">
+        <div class="card" onclick="sedia()">
+          <img src="../image/sedia.jpg" alt="" style="height: 100%;padding: 1%;">
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" onclick="sedia2()">
+          <img src="../image/sedia2.jpg" alt="" style="height: 100%; padding: 1%;">
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" onclick="pipo()">
+          <img src="../image/pipo_sedia.jpg" alt="" style="height: 100%; padding: 1%;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a-scene cusor="rayOrigin: mouse" webar-scene="key: 8338045c-44cf-4500-a374-24dc68cf1aa8" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false" loading-screen="enabled: false">
+    <a-assets>
+      <a-asset-item id="chair" src="../models/chair2.glb"></a-asset-item>
+      <a-asset-item id="chair2" src="../models/source/Chair.glb"></a-asset-item>
+      <a-asset-item id="chair3" src="../models/pipo.glb"></a-asset-item>
+
+    </a-assets>
+    <a-entity webar-stage>
+
+      <!-- <a-entity dragndrop rotate-component gltf-model="#chair" id="sedia_1" rotation="0 -33 0" position="0 -30 -50"
+        scale="1.8 1.8 1.8" webar-loadmonitor="elType: glb"></a-entity> -->
+      <a-entity dragndrop rotate-component gltf-model="#chair2" id="sedia_1" rotation="0 0 0" position="0 -50 -50"
+        scale="30 30 30" webar-loadmonitor="elType: glb" visible="false"></a-entity>
+
+      <a-entity dragndrop rotate-component gltf-model="#chair" id="sedia_2" rotation="0 -35 0" position="0 -50 -50"
+        scale="1.5 1.5 1.5" webar-loadmonitor="elType: glb" visible="false"></a-entity>
+
+        <a-entity dragndrop rotate-component gltf-model="#chair3" id="pipo" rotation="0 0 0" position="0 -3 -3"
+        scale="0.005 0.005 0.005" webar-loadmonitor="elType: glb" visible="false" ></a-entity>
+
+    </a-entity>
+    <!-- <a-sphere dragndrop position="0 1.25 -5" radius="1.25" color="#EF2D5E" id="target"></a-sphere> -->
+    <a-camera webar-camera look-controls-enabled="false" position="0 0 0">
+    </a-camera>
+    <div id="button_area">
+      <button id="btn_switch" onclick="clickButton()"
+        style="z-index:999;position: absolute; height: 10%; width: 15%; background-color: white;">
+      </button>
+    </div>
+  </a-scene>
+</body>
+<style>
+  #btn_switch {
+    background: url(../image/move.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: auto;
+    height: auto;
+  }
+</style>
+<script>
+  function sedia(el) {
+    var sedia = document.getElementById("sedia_1");
+    var sedia2 = document.getElementById("sedia_2");
+    var pipo = document.getElementById("pipo");
+    var sedia_visible = sedia.getAttribute("visible")
+    if (sedia_visible == true) {
+      sedia.setAttribute("visible", false);
+      sedia2.setAttribute("visible", false);
+      pipo.setAttribute("visible", false);
+    }
+    else {
+      sedia.setAttribute("visible", true);
+      sedia2.setAttribute("visible", false);
+      pipo.setAttribute("visible", false);
+    }
+  }
+  function sedia2(el) {
+    var sedia = document.getElementById("sedia_1");
+    var sedia2 = document.getElementById("sedia_2");
+    var pipo = document.getElementById("pipo");
+    var sedia_visible = sedia2.getAttribute("visible")
+    if (sedia_visible == true) {
+      sedia2.setAttribute("visible", false);
+      sedia.setAttribute("visible", false);
+      pipo.setAttribute("visible", false);
+    }
+    else {
+      sedia2.setAttribute("visible", true);
+      sedia.setAttribute("visible", false);
+      pipo.setAttribute("visible", false);
+    }
+  }
+  function pipo(el) {
+    var sedia = document.getElementById("sedia_1");
+    var sedia2 = document.getElementById("sedia_2");
+    var pipo = document.getElementById("pipo");
+    var sedia_visible = pipo.getAttribute("visible")
+    if (sedia_visible == true) {
+      sedia.setAttribute("visible", false);
+      sedia2.setAttribute("visible", false);
+      pipo.setAttribute("visible", false);
+    }
+    else {
+      pipo.setAttribute("visible", true);
+      sedia2.setAttribute("visible", false);
+      sedia.setAttribute("visible", false);
+    }
+  }
+</script>
+
+</html>
